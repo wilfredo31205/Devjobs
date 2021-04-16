@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ NombrePagina}}</title>
+    
+        <link rel="stylesheet" href="/css/trix.css">
+
+         <link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+
+
+<div class="nombre-sitio contenedor">
+
+    <h1>
+
+        <a href="/DevJobs/public/imagen.jpg">DevJobs</a>
+    </h1>
+
+    {{#if barra }} <!-----Verifica si una variable existe--->
+
+        <div class="buscador">
+
+            <form action="#">
+
+                <input type="text" class="buscar">
+
+                <input type="submit" value="Buscar">
+
+            </form>
+
+        </div>
+
+    {{/if}}
+
+    {{#if cerrarSesion}}
+
+    <div class="cerrar-sesion">
+        <p>!Hola es un gusto {{nombre}}</p>
+        <a href="/administracion">administracion</a>
+        <a href="/cerrar-Sesion">cerrar-Sesion</a>
+
+
+    </div>
+
+
+    {{/if}}
+
+</div>
+
+
+<div class="site-header contenedor separador"> <!---Aqui hay 3 clases de css---->
+
+
+<h2>{{NombrePagina}}</h2>
+
+´
+{{#if tagLine}} <!-----Si existe esta variable que la ejecute, sino que la olvide---->
+        <p class="tagline">{{tagLine}}</p>
+
+{{/if}}
+
+{{#if boton}}
+
+<a href="/vacantes/nueva" class="btn btn-azul">Publicar Nueva Vacante</a>
+
+<!----- "/vacantes/nueva"  esta es una url que vamos a definir mas adelante--->
+
+
+{{/if}}
+
+</div>
+
+
+
+<div class="contenido-principal contenedor">
+
+ 
+
+    {{#if mensajes}} 
+
+        <div class="alertas">
+
+
+
+            {{#mostrarAlertas mensajes}} <!--- mostrando nuesto helpers que se encuentre en handlebar.js--->
+
+                <li>dom</li>
+
+            {{/mostrarAlertas}}
+
+
+        </div>
+
+        {{/if}}
+
+
+
+
+       {{{body}}}
+
+
+
+</div>
+
+<script src="/js/trix.js"></script>
+
+<script src="/dist/bundle.js"></script>
+
+
+</body>
+</html>
